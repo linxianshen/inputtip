@@ -5,9 +5,13 @@ a input tip plugin
 
 ## 调用
 ``` bash
-tipInput({
-    el: inputId
-})
+//引入
+<script src="inputtip.js"></script>
 ```
 
+``` bash
+tipInput({
+    el: inputId   //input的id
+})
+```
 ![调用成功](img/inputtip.png)
