@@ -20,9 +20,14 @@
         let self = this;
         let elem = document.createElement("div");
         elem.id = 'tipwrap';
-        elem.style = 'position: absolute;color: black;top:' + (self.el.offsetTop - self.el.clientHeight - 14) + 'px;left:' + self.el.offsetLeft + 'px;';
+        //safari不支持这个写法的
+        // elem.style = 'position: absolute;color: black;top:' + (self.el.offsetTop - self.el.clientHeight - 14) + 'px;left:' + self.el.offsetLeft + 'px;';
+        elem.style.position = 'absolute';
+        elem.style.color = "black";
+        elem.style.top = self.el.offsetTop - self.el.clientHeight - 14 + 'px';
+        elem.style.left = self.el.offsetLeft + 'px';
         elem.hidden = true; //begin hidden
-        elem.innerHTML = "<div id='rect' style='background: #eee;border-radius: 4px;padding: 4px;font-size:" + (self.el.size + 2) + "px;height:" + self.el.clientHeight + "px;min-width:" + self.el.clientWidth + "px;'></div><span id='triangle' style='display: block;margin-left:" + (self.el.clientWidth / 10) + "px;width: 0;height: 0;border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #eee;'></span>";
+        elem.innerHTML = "<div id='rect' style='background: #eee;border-radius: 4px;padding: 4px;font-size:" + (self.el.offsetHeight - 6) + "px;height:" + self.el.clientHeight + "px;min-width:" + self.el.clientWidth + "px;'></div><span id='triangle' style='display: block;margin-left:" + (self.el.clientWidth / 10) + "px;width: 0;height: 0;border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #eee;'></span>";
         self.el.parentElement.appendChild(elem);
         self.el.addEventListener('focus', function() {
             if (self.el.value) {
