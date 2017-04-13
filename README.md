@@ -14,4 +14,4 @@ tipInput({
     el: inputId   //input的id
 })
 ```
-![调用成功](img/inputtip.png)
+![调用成功](img/inputtip.gif)
